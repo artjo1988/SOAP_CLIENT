@@ -48,7 +48,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "CreditInfoByIntCodeXMLResponse")
 public class CreditInfoByIntCodeXMLResponse {
 
-    @XmlElement(name = "CreditInfoByIntCodeXMLResult")
+//    @XmlElement(name = "CreditInfoByIntCodeXMLResult")
     protected CreditInfoByIntCodeXMLResponse.CreditInfoByIntCodeXMLResult creditInfoByIntCodeXMLResult;
 
     /**
@@ -96,14 +96,25 @@ public class CreditInfoByIntCodeXMLResponse {
      * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "content"
-    })
+//    @XmlType(name = "", propOrder = {
+//        "content"
+//    })
     public static class CreditInfoByIntCodeXMLResult {
 
-        @XmlMixed
-        @XmlAnyElement(lax = true)
-        protected List<Object> content;
+        @XmlElement(name = "RegNumber")
+        private short RegNumber;
+
+        public short getRegNumber() {
+            return RegNumber;
+        }
+
+        public void setRegNumber(short regNumber) {
+            RegNumber = regNumber;
+        }
+
+//        @XmlMixed
+//        @XmlAnyElement(lax = true)
+//        protected List<Object> content;
 
         /**
          * Gets the value of the content property.
@@ -128,12 +139,12 @@ public class CreditInfoByIntCodeXMLResponse {
          * 
          * 
          */
-        public List<Object> getContent() {
-            if (content == null) {
-                content = new ArrayList<Object>();
-            }
-            return this.content;
-        }
+//        public List<Object> getContent() {
+//            if (content == null) {
+//                content = new ArrayList<Object>();
+//            }
+//            return this.content;
+//        }
 
     }
 

@@ -1,4 +1,5 @@
 com\soap\client\generate\LastUpdate.class
+com\soap\client\model\Data.class
 com\soap\client\generate\BicToIntCodeResponse.class
 com\soap\client\generate\Data134FormFullXMLResponse$Data134FormFullXMLResult.class
 com\soap\client\generate\GetOfficesXMLResponse$GetOfficesXMLResult.class

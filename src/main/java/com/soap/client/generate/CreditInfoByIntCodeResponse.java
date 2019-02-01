@@ -98,11 +98,19 @@ public class CreditInfoByIntCodeResponse {
 //    })
     public static class CreditInfoByIntCodeResult {
 
-        @XmlAnyElement(lax = true)
-        protected Object any;
+//        @XmlAnyElement(lax = true)
+//        protected Object any;
 
         @XmlElement(name = "RegNumber")
-        protected short RegNumber;
+        private short RegNumber;
+
+        public short getRegNumber() {
+            return RegNumber;
+        }
+
+        public void setRegNumber(short regNumber) {
+            RegNumber = regNumber;
+        }
 
         /**
          * Gets the value of the any property.
@@ -112,10 +120,11 @@ public class CreditInfoByIntCodeResponse {
          *     {@link Object }
          *     
          */
-        public Object getAny() {
-            return any;
-        }
 
+
+//        public Object getAny() {
+//            return any;
+//        }
         /**
          * Sets the value of the any property.
          * 
@@ -124,9 +133,9 @@ public class CreditInfoByIntCodeResponse {
          *     {@link Object }
          *     
          */
-        public void setAny(Object value) {
-            this.any = value;
-        }
+//        public void setAny(Object value) {
+//            this.any = value;
+//        }
 
     }
 
