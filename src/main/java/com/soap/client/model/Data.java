@@ -12,13 +12,13 @@ import javax.persistence.*;
 @Table(name = "organization_data")
 public class Data {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column
-    private String date;
+	@Column
+	private String date;
 
-    @ManyToOne
-    private Record owner;
+	@ManyToOne
+	private Record owner;
 }

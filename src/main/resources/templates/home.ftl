@@ -15,6 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-light bg-light">
@@ -41,13 +42,43 @@
             <div class="modal-body">
                 Начать скачивание кредитных организаций?
             </div>
-            <form method="get" action="/organizations">
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">OK</button>
-                </div>
-            </form>
+            <div class="modal-footer">
+                <button id="ok-button" onclick="disableButton(); download()" type="button" class="btn btn-secondary">
+                    OK
+                </button>
+                <form action="/organizations/list">
+                    <button id="view-button" type="submit" disabled="disabled" class="btn btn-primary">
+                        Посмотреть результаты
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+<script>
+    function download() {
+        $.ajax({
+            url: "/organizations/download",
+            type: "GET",
+            cache: false,
+            success: function () {
+                $('#view-button').removeAttr("disabled");
+
+            },
+            error: function () {
+                alert("Данные не были успешно скачены, будут предоставлены не актуальные данные!");
+                $.ajax({
+                    url: "/organizations/list",
+                    type: "GET",
+                })
+            }
+        });
+    }
+
+    function disableButton() {
+        $('#ok-button').attr("disabled", "disabled");
+        alert('Началась загрузка данных, пожалуйста подождите! После окончания загрузки, кнопка \"Посмотреть результаты\" станет активной');
+    }
+</script>
 </body>
 </html>

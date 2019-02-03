@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import java.util.List;
@@ -20,18 +19,18 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Record {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-    @Column(name = "id_got")
+	@Column(name = "id_got")
 	@XmlAttribute(name = "ID")
 	private String idGot;
 
 	@XmlAttribute(name = "DU")
 	private String du;
 
-    @Column(name = "short_name")
+	@Column(name = "short_name")
 	@XmlElement(name = "ShortName")
 	private String shortName;
 

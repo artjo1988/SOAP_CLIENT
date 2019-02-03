@@ -1,8 +1,6 @@
 package com.soap.client.services;
 
-import com.soap.client.model.BicCode;
-import com.soap.client.model.Data;
-import com.soap.client.model.Record;
+import com.soap.client.model.*;
 import com.soap.client.repository.DataRepository;
 import com.soap.client.repository.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,36 +15,37 @@ import java.util.List;
 @Service
 public class RecordService {
 
-	@Autowired
-	RecordRepository recordRepository;
+    @Autowired
+    RecordRepository recordRepository;
 
-	@Autowired
-	DataRepository dataRepository;
+    @Autowired
+    DataRepository dataRepository;
 
-	@Autowired
-	SoapService soapService;
+    @Autowired
+    SoapService soapService;
 
-	public List<Record> saveAndGetRecordsFromXml() {
-		BicCode bicCode = null;
-		try {
-			JAXBContext contex = JAXBContext.newInstance(BicCode.class, Record.class);
-			Unmarshaller unmarshaller = contex.createUnmarshaller();
-			StreamSource xml = new StreamSource("src/main/resources/" + FileService.FILE_NAME);
-			bicCode = unmarshaller.unmarshal(xml, BicCode.class).getValue();
+    public List<Record> saveAndGetRecordsFromXml() {
+        BicCode bicCode = null;
+        try {
+            JAXBContext contex = JAXBContext.newInstance(BicCode.class, Record.class);
+            Unmarshaller unmarshaller = contex.createUnmarshaller();
+            StreamSource xml = new StreamSource("src/main/resources/" + FileService.FILE_NAME);
+            bicCode = unmarshaller.unmarshal(xml, BicCode.class).getValue();
 
-		} catch (JAXBException e) {
-			// noop
-		}
-		assert bicCode != null;
-		recordRepository.saveAll(bicCode.getList());
-		return bicCode.getList();
-	}
-
-	public Record getRecordByBic(String bic){
-	    return recordRepository.findByBic(bic);
+        } catch (JAXBException e) {
+            // noop
+        }
+        assert bicCode != null;
+        recordRepository.saveAll(bicCode.getList());
+        return bicCode.getList();
     }
 
-	public List<Data> getDatesFromRecordName(String name) {
-		return soapService.getDatesFromRecordName(name);
-	}
+    public Record getRecordByBic(final String bic) {
+        return recordRepository.findByBic(bic);
+    }
+
+    public List<Record> getAllOrganizations() {
+        return recordRepository.findAll();
+    }
+
 }
