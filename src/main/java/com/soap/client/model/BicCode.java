@@ -15,10 +15,10 @@ import java.util.List;
 public class BicCode {
 
     @XmlAttribute
-    private String name="BIC CODES";
+    private String name = "BIC CODES";
 
     @XmlElement(name = "Record",
-            type = Record.class)
+        type = Record.class)
     private List<Record> list;
 
     @Override

@@ -63,21 +63,19 @@
             cache: false,
             success: function () {
                 $('#view-button').removeAttr("disabled");
-
             },
             error: function () {
                 alert("Данные не были успешно скачены, будут предоставлены не актуальные данные!");
-                $.ajax({
-                    url: "/organizations/list",
-                    type: "GET",
-                })
+                setTimeout(function () {
+                    window.location.href = "http://localhost/organizations/list";
+                }, 1000);
             }
         });
     }
 
     function disableButton() {
         $('#ok-button').attr("disabled", "disabled");
-        alert('Началась загрузка данных, пожалуйста подождите! После окончания загрузки, кнопка \"Посмотреть результаты\" станет активной');
+        alert('Началась загрузка данных, пожалуйста подождите! После окончания загрузки кнопка \"Посмотреть результаты\" станет активной');
     }
 </script>
 </body>

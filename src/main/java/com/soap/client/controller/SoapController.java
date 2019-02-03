@@ -19,57 +19,69 @@ import java.util.List;
 @Controller
 public class SoapController {
 
-	@Autowired
-	SoapService soapService;
+    @Autowired
+    SoapService soapService;
 
-	@Autowired
-	FileService fileService;
+    @Autowired
+    FileService fileService;
 
-	@Autowired
-	RecordService recordService;
+    @Autowired
+    RecordService recordService;
 
-	@Autowired
-	DataService dataService;
+    @Autowired
+    DataService dataService;
 
-	@GetMapping("/home")
-	public String getHome() {
-		return "home";
-	}
+    @GetMapping("/home")
+    public String getHome() {
+        return "home";
+    }
 
-	@GetMapping("/organizations/download")
-	public ResponseEntity getOrganizations() {
-		try {
-			fileService.downloadFile();
-		} catch (IOException e) {
-			return ResponseEntity.status(500).build();
-		}
-		List<Record> records = recordService.saveAndGetRecordsFromXml();
-		dataService.saveAllDataFromAllOrganizations(records);
-		return ResponseEntity.ok().build();
-	}
-
-	@GetMapping("/organizations/list")
-	public String getOrganizationsView(ModelMap modelMap) {
-	    List<Record> list = recordService.getAllOrganizations();
-	    if (list.isEmpty()){
-            modelMap.addAttribute("message", "Список организаций пуст");
-	    }
-        else {
-            modelMap.addAttribute("organizations", list);
+    @GetMapping("/organizations/download")
+    public ResponseEntity getOrganizations() {
+        try {
+            fileService.downloadFile();
+        } catch (IOException e) {
+            return ResponseEntity.status(500).build();
         }
-		return "organizations";
-	}
+        List<Record> listDb = recordService.getAllOrganizations();
+        List<Record> listXml = recordService.getRecordsFromXml();
+        if (!listDb.isEmpty() & !listXml.isEmpty()) {
+            listDb.sort(Record::compareTo);
+            listXml.sort(Record::compareTo);
+            if (listDb.equals(listXml)) {
+                return ResponseEntity.ok().build();
+            }
+        }
+        List<Record> records = recordService.saveAndGetRecordsFromXml();
+        dataService.saveAllDataFromAllOrganizations(records);
+        return ResponseEntity.ok().build();
+    }
 
-	// не производил проверку входных данных, т.к. запрос формируется автоматической
-	// ссылкой
-	@GetMapping("/organization/{bic}/dates")
-	public String getListOrganizations(@PathVariable("bic") String bic, ModelMap modelMap) {
-		Record record = recordService.getRecordByBic(bic);
-		modelMap.addAttribute("organization", record);
-		List<Data> dates = dataService.getDatesByBic(bic);
-		if (!dates.isEmpty()) {
-			modelMap.addAttribute("dates", dates);
-		}
-		return "orgdates";
-	}
+    @GetMapping("/organizations/list")
+    public String getOrganizationsView(ModelMap modelMap) {
+        List<Record> listDb = recordService.getAllOrganizations();
+        List<Record> listXml = recordService.getRecordsFromXml();
+        if (!listDb.isEmpty()) {
+            modelMap.addAttribute("organizations", listDb);
+        } else if (listXml.isEmpty()) {
+            modelMap.addAttribute("message", "К сожелению, неактуальный список организаций пуст");
+        } else {
+            modelMap.addAttribute("message", "Предоставлен список с неактуальными данными");
+            modelMap.addAttribute("organizations", listXml);
+        }
+        return "organizations";
+    }
+
+    // не производил проверку входных данных, т.к. запрос формируется автоматической
+    // ссылкой
+    @GetMapping("/organization/{bic}/dates")
+    public String getListOrganizations(@PathVariable("bic") String bic, ModelMap modelMap) {
+        Record record = recordService.getRecordByBic(bic);
+        modelMap.addAttribute("organization", record);
+        List<Data> dates = dataService.getDatesByBic(bic);
+        if (!dates.isEmpty()) {
+            modelMap.addAttribute("dates", dates);
+        }
+        return "orgdates";
+    }
 }

@@ -8,7 +8,8 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:application.properties")
 public class SoapClientApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SoapClientApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SoapClientApplication.class, args);
+    }
+
 }

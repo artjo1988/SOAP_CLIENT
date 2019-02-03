@@ -11,25 +11,25 @@ import org.springframework.ws.soap.client.core.SoapActionCallback;
 @Component
 public class SoapConnector extends WebServiceGatewaySupport {
 
-	@Autowired
-	@Qualifier("generate")
-	Jaxb2Marshaller marshallerGenerate;
+    @Autowired
+    @Qualifier("generate")
+    Jaxb2Marshaller marshallerGenerate;
 
-	@Autowired
-	@Qualifier("model")
-	Jaxb2Marshaller marshallerModel;
+    @Autowired
+    @Qualifier("model")
+    Jaxb2Marshaller marshallerModel;
 
-	public Object callWevServiceGenerate(String url, Object request, String action) {
-		WebServiceTemplate webServiceTemplate = getWebServiceTemplate();
-		getWebServiceTemplate().setMarshaller(marshallerGenerate);
-		getWebServiceTemplate().setUnmarshaller(marshallerGenerate);
-		return webServiceTemplate.marshalSendAndReceive(url, request, new SoapActionCallback(action));
-	}
+    public Object callWevServiceGenerate(String url, Object request, String action) {
+        WebServiceTemplate webServiceTemplate = getWebServiceTemplate();
+        getWebServiceTemplate().setMarshaller(marshallerGenerate);
+        getWebServiceTemplate().setUnmarshaller(marshallerGenerate);
+        return webServiceTemplate.marshalSendAndReceive(url, request, new SoapActionCallback(action));
+    }
 
-	public Object callWevServiceModel(String url, Object request, String action) {
-		WebServiceTemplate webServiceTemplate = getWebServiceTemplate();
-		getWebServiceTemplate().setMarshaller(marshallerModel);
-		getWebServiceTemplate().setUnmarshaller(marshallerModel);
-		return webServiceTemplate.marshalSendAndReceive(url, request, new SoapActionCallback(action));
-	}
+    public Object callWevServiceModel(String url, Object request, String action) {
+        WebServiceTemplate webServiceTemplate = getWebServiceTemplate();
+        getWebServiceTemplate().setMarshaller(marshallerModel);
+        getWebServiceTemplate().setUnmarshaller(marshallerModel);
+        return webServiceTemplate.marshalSendAndReceive(url, request, new SoapActionCallback(action));
+    }
 }

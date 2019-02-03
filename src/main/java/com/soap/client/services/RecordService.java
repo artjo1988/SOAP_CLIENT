@@ -10,6 +10,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -33,10 +34,25 @@ public class RecordService {
             bicCode = unmarshaller.unmarshal(xml, BicCode.class).getValue();
 
         } catch (JAXBException e) {
-            // noop
+            return new ArrayList<>();
         }
         assert bicCode != null;
         recordRepository.saveAll(bicCode.getList());
+        return bicCode.getList();
+    }
+
+    public List<Record> getRecordsFromXml() {
+        BicCode bicCode = null;
+        try {
+            JAXBContext contex = JAXBContext.newInstance(BicCode.class, Record.class);
+            Unmarshaller unmarshaller = contex.createUnmarshaller();
+            StreamSource xml = new StreamSource("src/main/resources/" + FileService.FILE_NAME);
+            bicCode = unmarshaller.unmarshal(xml, BicCode.class).getValue();
+
+        } catch (JAXBException e) {
+            return new ArrayList<>();
+        }
+        assert bicCode != null;
         return bicCode.getList();
     }
 

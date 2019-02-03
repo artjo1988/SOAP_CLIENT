@@ -1,4 +1,10 @@
-<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://web.cbr.ru/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://web.cbr.ru/">
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://web.cbr.ru/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  targetNamespace="http://web.cbr.ru/">
     <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
         Справочник по кредитным организациям, ver - 07.03.2017
     </wsdl:documentation>
@@ -1396,7 +1402,9 @@
             <wsdl:output message="tns:GetFormsMaxDateSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="LastUpdate">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение даты последнего обновления базы по КО</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение даты последнего обновления базы
+                по КО
+            </wsdl:documentation>
             <wsdl:input message="tns:LastUpdateSoapIn"/>
             <wsdl:output message="tns:LastUpdateSoapOut"/>
         </wsdl:operation>
@@ -1429,18 +1437,23 @@
             <wsdl:output message="tns:Data101FormXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data101Form">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные КО. формы 101, без оборотов (как DataSet)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные КО. формы 101, без оборотов (как
+                DataSet)
+            </wsdl:documentation>
             <wsdl:input message="tns:Data101FormSoapIn"/>
             <wsdl:output message="tns:Data101FormSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data101FullXML">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные КО. формы 101, полностью (как XMLDocument)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные КО. формы 101, полностью (как
+                XMLDocument)
+            </wsdl:documentation>
             <wsdl:input message="tns:Data101FullXMLSoapIn"/>
             <wsdl:output message="tns:Data101FullXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data101FullExXML">
             <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-                Данные КО. формы 101,полностью (Внимание, метод устарел, используйте v2) (как XMLDocument) по нескольким КО. ver 17.03.2015
+                Данные КО. формы 101,полностью (Внимание, метод устарел, используйте v2) (как XMLDocument) по нескольким
+                КО. ver 17.03.2015
             </wsdl:documentation>
             <wsdl:input message="tns:Data101FullExXMLSoapIn"/>
             <wsdl:output message="tns:Data101FullExXMLSoapOut"/>
@@ -1502,12 +1515,15 @@
             <wsdl:output message="tns:Data102FormExSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data102FormXML">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные КО. формы 102, кратко (как XMLDocument)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные КО. формы 102, кратко (как
+                XMLDocument)
+            </wsdl:documentation>
             <wsdl:input message="tns:Data102FormXMLSoapIn"/>
             <wsdl:output message="tns:Data102FormXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data102Form">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные КО. формы 102 (как DataSet)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные КО. формы 102 (как DataSet)
+            </wsdl:documentation>
             <wsdl:input message="tns:Data102FormSoapIn"/>
             <wsdl:output message="tns:Data102FormSoapOut"/>
         </wsdl:operation>
@@ -1519,7 +1535,9 @@
             <wsdl:output message="tns:Form102IndicatorsEnumXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Form102IndicatorsEnum">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Справочник символов для формы 102 (как DataSet)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Справочник символов для формы 102 (как
+                DataSet)
+            </wsdl:documentation>
             <wsdl:input message="tns:Form102IndicatorsEnumSoapIn"/>
             <wsdl:output message="tns:Form102IndicatorsEnumSoapOut"/>
         </wsdl:operation>
@@ -1531,12 +1549,16 @@
             <wsdl:output message="tns:Form101IndicatorsEnumXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Form101IndicatorsEnum">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Справочник индикаторов для формы 101 (как DataSet)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Справочник индикаторов для формы 101 (как
+                DataSet)
+            </wsdl:documentation>
             <wsdl:input message="tns:Form101IndicatorsEnumSoapIn"/>
             <wsdl:output message="tns:Form101IndicatorsEnumSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="RegNumToIntCode">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Регистрационный номер во внутренний код КО.</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Регистрационный номер во внутренний код
+                КО.
+            </wsdl:documentation>
             <wsdl:input message="tns:RegNumToIntCodeSoapIn"/>
             <wsdl:output message="tns:RegNumToIntCodeSoapOut"/>
         </wsdl:operation>
@@ -1548,17 +1570,21 @@
             <wsdl:output message="tns:IntCodeToRegNumSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="BicToIntCode">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bic код во внутренний код кред.орг.</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bic код во внутренний код кред.орг.
+            </wsdl:documentation>
             <wsdl:input message="tns:BicToIntCodeSoapIn"/>
             <wsdl:output message="tns:BicToIntCodeSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="BicToRegNumber">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bic код в регистрационный номер кред.орг.</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Bic код в регистрационный номер
+                кред.орг.
+            </wsdl:documentation>
             <wsdl:input message="tns:BicToRegNumberSoapIn"/>
             <wsdl:output message="tns:BicToRegNumberSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="RegionsEnum">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Справочник регионов (как DataSet)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Справочник регионов (как DataSet)
+            </wsdl:documentation>
             <wsdl:input message="tns:RegionsEnumSoapIn"/>
             <wsdl:output message="tns:RegionsEnumSoapOut"/>
         </wsdl:operation>
@@ -1577,17 +1603,23 @@
             <wsdl:output message="tns:SearchByRegionCodeSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="SearchByRegionCodeXML">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Поиск кредитных орг. по региону(коду) (как XML)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Поиск кредитных орг. по региону(коду) (как
+                XML)
+            </wsdl:documentation>
             <wsdl:input message="tns:SearchByRegionCodeXMLSoapIn"/>
             <wsdl:output message="tns:SearchByRegionCodeXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="SearchByNameXML">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Поиск кредитных орг. по названию (как XML)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Поиск кредитных орг. по названию (как
+                XML)
+            </wsdl:documentation>
             <wsdl:input message="tns:SearchByNameXMLSoapIn"/>
             <wsdl:output message="tns:SearchByNameXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="SearchByName">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Поиск кредитных орг. по названию (как DataSet)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Поиск кредитных орг. по названию (как
+                DataSet)
+            </wsdl:documentation>
             <wsdl:input message="tns:SearchByNameSoapIn"/>
             <wsdl:output message="tns:SearchByNameSoapOut"/>
         </wsdl:operation>
@@ -1648,57 +1680,69 @@
             <wsdl:output message="tns:GetOfficesByRegionXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data134FormFullXML">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 134 (как XML)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 134 (как XML)
+            </wsdl:documentation>
             <wsdl:input message="tns:Data134FormFullXMLSoapIn"/>
             <wsdl:output message="tns:Data134FormFullXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Olap134Form">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 134, OLAP, (как DataSet)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 134, OLAP, (как DataSet)
+            </wsdl:documentation>
             <wsdl:input message="tns:Olap134FormSoapIn"/>
             <wsdl:output message="tns:Olap134FormSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data135FormFull">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 135 (как DataSet) ver 05.06.2014</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 135 (как DataSet) ver
+                05.06.2014
+            </wsdl:documentation>
             <wsdl:input message="tns:Data135FormFullSoapIn"/>
             <wsdl:output message="tns:Data135FormFullSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data135FormFullXML">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 135 (как XML)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 135 (как XML)
+            </wsdl:documentation>
             <wsdl:input message="tns:Data135FormFullXMLSoapIn"/>
             <wsdl:output message="tns:Data135FormFullXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data123FormFull">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 123 (как DataSet)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 123 (как DataSet)
+            </wsdl:documentation>
             <wsdl:input message="tns:Data123FormFullSoapIn"/>
             <wsdl:output message="tns:Data123FormFullSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="Data123FormFullXML">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 123 (как XML)</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Данные по форме 123 (как XML)
+            </wsdl:documentation>
             <wsdl:input message="tns:Data123FormFullXMLSoapIn"/>
             <wsdl:output message="tns:Data123FormFullXMLSoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetDatesForF123">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 123</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 123
+            </wsdl:documentation>
             <wsdl:input message="tns:GetDatesForF123SoapIn"/>
             <wsdl:output message="tns:GetDatesForF123SoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetDatesForF101">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 101</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 101
+            </wsdl:documentation>
             <wsdl:input message="tns:GetDatesForF101SoapIn"/>
             <wsdl:output message="tns:GetDatesForF101SoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetDatesForF102">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 102</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 102
+            </wsdl:documentation>
             <wsdl:input message="tns:GetDatesForF102SoapIn"/>
             <wsdl:output message="tns:GetDatesForF102SoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetDatesForF134">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 134</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 134
+            </wsdl:documentation>
             <wsdl:input message="tns:GetDatesForF134SoapIn"/>
             <wsdl:output message="tns:GetDatesForF134SoapOut"/>
         </wsdl:operation>
         <wsdl:operation name="GetDatesForF135">
-            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 135</wsdl:documentation>
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Список дат для формы 135
+            </wsdl:documentation>
             <wsdl:input message="tns:GetDatesForF135SoapIn"/>
             <wsdl:output message="tns:GetDatesForF135SoapOut"/>
         </wsdl:operation>
