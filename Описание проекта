@@ -1,4 +1,4 @@
-﻿Описание. Данный web-приложение спроектировано c использавнием среды разработки Intellij IDEA, Maven, Spring(Boot, WS, Data JPA, Web), JAXB, Liquibase, Postgresql, FreeMarker, применен плагин Lombok. Приложение на 80-м порту.
+Описание. Данный web-приложение спроектировано c использавнием среды разработки Intellij IDEA, Maven, Spring(Boot, WS, Data JPA, Web), JAXB, Liquibase, Postgresql, FreeMarker, JavaScript, Ajax, Bootstrap применен плагин Lombok. Приложение на 80-м порту.
 
 Для запуска приложения необходимо запустить Intellij IDEA, , открыть в нём проект, если не установлен плагин Lombok, дополнительно его установить, на машине так же должен быть установлен фреймворк сбоки Maven, необходимо выбрать конфигурацию SoapClientApplication, в настройках конфигурации в "VM options" установить значени -Djavax.xml.accessExternalSchema=all и запустить её.
 
